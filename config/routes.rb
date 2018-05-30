@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  resources :users, only: [:index, :show]
-  resource :user, except: [:update]
+  resources :users
 
   get "/top" => "users#index"
 end

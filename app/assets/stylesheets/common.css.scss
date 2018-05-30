@@ -1,0 +1,103 @@
+$small: 0.8rem;
+$normal: 1rem;
+$large: 1.2rem;
+
+.text{
+  &.red{
+    color: red;
+  }
+  &.small{
+    font-size: $small
+  }
+  &.large{
+    font-size: $large
+  }
+  &.center{
+    text-align: center;
+  }
+  &.center{
+    text-align: center;
+  }
+}
+
+.overflow-hidden{
+  overflow: hidden;
+}
+
+.float{
+  &.right{
+    float: right;
+  }
+  
+  &.left{
+    float: left;
+  }
+}
+
+.form{
+  border: ridge 1px black;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.padding-s{
+  padding: $small
+}
+
+.padding-m{
+  padding: $normal
+}
+
+.padding-l{
+  padding: $large
+}
+
+.margin-s{
+  margin: $small;
+}
+
+.margin-m{
+  margin: $normal;
+}
+
+.margin-l{
+  margin: $large;
+}
+
+.btn{
+  border: 1px solid black;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  border-radius: 1rem;
+  color: red;
+  background: blueviolet;
+  padding: $normal;
+}
+
+.width-20{
+  width: 20%;
+}
+
+.width-30{
+  width: 30%;
+}
+
+.width-50{
+  width: 50%;
+}
+
+.width-70{
+  width: 70%;
+}
+
+.width-80{
+  width: 80%;
+}
+
+.flex-container{
+  display: flex;
+  &.right{
+    justify-content: flex-end;
+  }
+
+}
