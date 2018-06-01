@@ -2,6 +2,16 @@ $small: 0.8rem;
 $normal: 1rem;
 $large: 1.2rem;
 
+$theme-color: #42f4c8;
+$white: #ffffff;
+$black: #111111;
+
+
+.body{
+  margin: 0rem;
+}
+
+
 .text{
   &.red{
     color: red;
@@ -18,8 +28,13 @@ $large: 1.2rem;
   &.center{
     text-align: center;
   }
+  &.bold{
+    font-weight: bold;
+  }
 }
-
+.link-none{
+  text-decoration: none;
+}
 .overflow-hidden{
   overflow: hidden;
 }
@@ -64,6 +79,31 @@ $large: 1.2rem;
   margin: $large;
 }
 
+.margin-s-r{
+  margin-right: $small;
+}
+
+.margin-m-r{
+  margin-right: $normal;
+}
+
+.margin-l-r{
+  margin-right: $large;
+}
+
+.margin-s-l{
+  margin-left: $small;
+}
+
+.margin-m-l{
+  margin-left: $normal;
+}
+
+.margin-l-l{
+  margin-left: $large;
+}
+
+
 .btn{
   border: 1px solid black;
   -webkit-border-radius: 1rem;
@@ -94,10 +134,19 @@ $large: 1.2rem;
   width: 80%;
 }
 
+.header{
+  background: $theme-color;
+  display: flex;
+  align-items: center;
+}
+
 .flex-container{
   display: flex;
   &.right{
     justify-content: flex-end;
   }
+}
 
+.flex-expanded{
+  flex: 1;
 }
