@@ -1,0 +1,38 @@
+@import "common";
+
+.margin-s{
+  margin: $small;
+}
+
+.margin-m{
+  margin: $normal;
+}
+
+.margin-l{
+  margin: $large;
+}
+
+.margin-s-r{
+  margin-right: $small;
+}
+
+.margin-m-r{
+  margin-right: $normal;
+}
+
+.margin-l-r{
+  margin-right: $large;
+}
+
+.margin-s-l{
+  margin-left: $small;
+}
+
+.margin-m-l{
+  margin-left: $normal;
+}
+
+.margin-l-l{
+  margin-left: $large;
+}
+
