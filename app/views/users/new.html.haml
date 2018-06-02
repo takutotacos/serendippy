@@ -32,10 +32,10 @@
 
     .text.large.flex-container
       .width-30
-        = f.label :password_digest, "Confirmation"
+        = f.label :password_confirmation, "Confirmation"
       .width-70
-        = f.password_field :password_digest, class: "form-control"
-        - @user.errors[:password_digest].each do |message|
+        = f.password_field :password_confirmation, class: "form-control"
+        - @user.errors[:password_confirmation].each do |message|
           %span.error_message= message
           %br/
 
