@@ -1,14 +1,15 @@
 @import "common";
 
 .text{
-  &.red{
-    color: red;
-  }
+
   &.small{
     font-size: $small
   }
   &.large{
     font-size: $large
+  }
+  &.xlarge{
+    font-size: $xlarge;
   }
   &.center{
     text-align: center;

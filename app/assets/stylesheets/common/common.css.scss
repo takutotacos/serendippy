@@ -1,6 +1,7 @@
 $small: 0.8rem;
 $normal: 1rem;
 $large: 1.2rem;
+$xlarge: 1.4rem;
 
 $theme-color: #42f4c8;
 $white: #ffffff;
@@ -38,4 +39,5 @@ $black: #111111;
   background: $theme-color;
   display: flex;
   align-items: center;
+  color: $white;
 }

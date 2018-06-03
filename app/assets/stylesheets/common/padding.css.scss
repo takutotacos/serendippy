@@ -1,14 +1,56 @@
 @import "common";
 
 .padding-s{
-  padding: $small
+  padding: $small;
+  &.top{
+    padding-top: $small;
+  }
+
+  &.bottom{
+    padding-bottom: $small;
+  }
+
+  &.right{
+    padding-right: $small;
+  }
+
+  &.left{
+    padding-left: $small;
+  }
 }
 
 .padding-m{
-  padding: $normal
+  &.top{
+    padding-top: $normal;
+  }
+
+  &.bottom{
+    padding-bottom: $normal;
+  }
+
+  &.right{
+    padding-right: $normal;
+  }
+
+  &.left{
+    padding-left: $normal;
+  }
 }
 
 .padding-l{
-  padding: $large
-}
+  &.top{
+    padding-top: $large;
+  }
 
+  &.bottom{
+    padding-bottom: $large;
+  }
+
+  &.right{
+    padding-right: $large;
+  }
+
+  &.left{
+    padding-left: $large;
+  }
+}
