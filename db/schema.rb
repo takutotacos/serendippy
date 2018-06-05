@@ -10,29 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180523042551) do
+ActiveRecord::Schema.define(version: 20180602072315) do
+
+  create_table "discoveries", force: :cascade do |t|
+    t.string "content"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_discoveries_on_user_id"
+  end
+
+  create_table "discovery_and_genre_relationships", force: :cascade do |t|
+    t.integer "genre_id"
+    t.integer "memo_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["genre_id"], name: "index_discovery_and_genre_relationships_on_genre_id"
+    t.index ["memo_id"], name: "index_discovery_and_genre_relationships_on_memo_id"
+  end
 
   create_table "genres", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "memo_and_genre_relationships", force: :cascade do |t|
-    t.integer "genre_id"
-    t.integer "memo_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["genre_id"], name: "index_memo_and_genre_relationships_on_genre_id"
-    t.index ["memo_id"], name: "index_memo_and_genre_relationships_on_memo_id"
-  end
-
-  create_table "memos", force: :cascade do |t|
-    t.string "content"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_memos_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

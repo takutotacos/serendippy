@@ -1,0 +1,23 @@
+@import "common";
+
+.text{
+
+  &.small{
+    font-size: $small
+  }
+  &.large{
+    font-size: $large
+  }
+  &.xlarge{
+    font-size: $xlarge;
+  }
+  &.center{
+    text-align: center;
+  }
+  &.center{
+    text-align: center;
+  }
+  &.bold{
+    font-weight: bold;
+  }
+}

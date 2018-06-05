@@ -1,0 +1,13 @@
+@import "common";
+
+.flex-container{
+  display: flex;
+  &.right{
+    justify-content: flex-end;
+  }
+}
+
+.flex-expanded{
+  flex: 1;
+}
+

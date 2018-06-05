@@ -1,0 +1,14 @@
+.header.padding-s
+  .text.xlarge.bold
+    Serendippy
+
+  .flex-expanded
+
+  .text.large.margin-m-r
+    = image_tag("timeline_white_18x18.png", size: "24x24")
+  .margin-m-r
+    = link_to image_tag("baseline_note_add_black_18dp.png", size: "24x24"), new_discovery_path, class: "link-none"
+  .text.large.margin-m-r
+    = image_tag("baseline_perm_identity_black_18dp.png", size: "24x24")
+  .text.large
+    = link_to image_tag("baseline_subject_black_18dp.png", size: "24x24"), new_user_path, class: "link-none"

@@ -1,0 +1,44 @@
+
+.form
+  %h1 Welcome!! Please tell us your information!
+  = form_for @user, url: { controller: :users, action: :create } do |f|
+
+    .text.large.flex-container
+      .width-30
+        = f.label :name, "Name"
+      .width-70
+        = f.text_field :name, style: "width: auto", class: "form-control"
+        - @user.errors[:name].each do |message|
+          %span.error_message= message
+          %br/
+
+    .text.large.flex-container
+      .width-30
+        = f.label :email, "Email"
+      .width-70
+        = f.email_field :email, class: "form-control"
+        - @user.errors[:email].each do |message|
+          %span.error_message= message
+          %br/
+
+    .text.large.flex-container
+      .width-30
+        = f.label :password, "Password"
+      .width-70
+        = f.password_field :password, class: "form-control"
+        - @user.errors[:password].each do |message|
+          %span.error_message= message
+          %br/
+
+    .text.large.flex-container
+      .width-30
+        = f.label :password_confirmation, "Confirmation"
+      .width-70
+        = f.password_field :password_confirmation, class: "form-control"
+        - @user.errors[:password_confirmation].each do |message|
+          %span.error_message= message
+          %br/
+
+    = f.submit "Submit"
+
+    = link_to "Back", top_path

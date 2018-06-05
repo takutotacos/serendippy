@@ -1,0 +1,26 @@
+.form
+  %h1 Let's record your discovery!!!!!!!!!!
+  = form_for @discovery do |f|
+
+    .text.large.flex-container
+      .width-30
+        = f.label :content, "content"
+      .width-70
+        = f.text_area :content, style: "width: auto", class: "form-control", size: "100x10"
+        - @discovery.errors[:name].each do |message|
+          %span.error_message= message
+          %br/
+
+    .text.large.flex-container
+      .width-30
+        = f.label :genres, "genre"
+      .width-70
+        = f.check_box :genres, style: "width: auto", class: "form-control"
+        - @discovery.errors[:name].each do |message|
+          %span.error_message= message
+          %br/
+
+
+    = f.submit "Submit"
+
+    = link_to "Back", top_path
