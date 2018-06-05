@@ -1,0 +1,21 @@
+.form
+  %h1 Welcome to Serendippy! Let's get down to today's business!
+
+  = form_for :session, url: login_path do |f|
+
+    .text.large.flex-container
+      .width-30
+        = f.label :email, "Email"
+      .width-70
+        = f.text_field :email, style: "width: auto", class: "form-control", size: "100x10"
+
+    .text.large.flex-container
+      .width-30
+        = f.label :password, "password"
+      .width-70
+        = f.password_field :password, style: "width: auto", class: "form-control"
+
+
+    = f.submit "Login"
+
+    = link_to "Back", root_path

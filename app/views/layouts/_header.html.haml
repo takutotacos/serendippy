@@ -1,14 +1,26 @@
 .header.padding-s
-  .text.xlarge.bold
-    Serendippy
+  .text.xlarge.bold{style: "display: flex;"}
+    = image_tag("favicon.ico", alt: "logo", size: "36x36")
+    .margin-s-l
+      Serendippy
 
   .flex-expanded
 
-  .text.large.margin-m-r
-    = image_tag("timeline_white_18x18.png", size: "24x24")
-  .margin-m-r
-    = link_to image_tag("baseline_note_add_black_18dp.png", size: "24x24"), new_discovery_path, class: "link-none"
-  .text.large.margin-m-r
-    = image_tag("baseline_perm_identity_black_18dp.png", size: "24x24")
-  .text.large
-    = link_to image_tag("baseline_subject_black_18dp.png", size: "24x24"), new_user_path, class: "link-none"
+  - if logged_in?
+    .text.large.margin-m-r
+      = image_tag("timeline_white_18x18.png", size: "24x24")
+
+    .margin-m-r
+      = link_to image_tag("baseline_note_add_black_18dp.png", alt: "new discovery", size: "24x24"), new_discovery_path, class: "link-none"
+
+    .text.large.margin-m-r
+      = image_tag("baseline_perm_identity_black_18dp.png", alt: "personal page", size: "24x24")
+
+    .text.large
+      = link_to "Logout", logout_path, method: :delete
+
+  - if !logged_in?
+    .text.large
+      = link_to "Login", login_path  .text.large
+
+    = link_to image_tag("baseline_subject_black_18dp.png", alt: "Sign up", size: "24x24"), new_user_path, class: "link-none"

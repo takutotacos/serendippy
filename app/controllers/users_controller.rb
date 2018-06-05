@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(_user_params)
     if @user.save
+      log_in @user
       render :show
     else
       render :new

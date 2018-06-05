@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
+  root 'users#index'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
-  delete '/login' => 'sessions#destroy'
+  delete '/logout' => 'sessions#destroy'
 
   resources :users
   resources :discoveries
-
-  get '/top' => 'users#index'
 end
