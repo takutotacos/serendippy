@@ -8,7 +8,10 @@
 
   - if logged_in?
     .text.large.margin-m-r
-      = image_tag("timeline_white_18x18.png", size: "24x24")
+      = image_tag("timeline_white_18x18.png", alt: "discoveries", size: "24x24")
+
+    .text.large.margin-m-r
+      =  link_to image_tag("genres_registration.png", alt: "new genre", size: "36x36"), new_genre_path, class: "link-none"
 
     .margin-m-r
       = link_to image_tag("baseline_note_add_black_18dp.png", alt: "new discovery", size: "24x24"), new_discovery_path, class: "link-none"
