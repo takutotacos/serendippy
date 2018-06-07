@@ -1,23 +1,27 @@
 .header.padding-s
   .text.xlarge.bold{style: "display: flex;"}
-    = image_tag("favicon.ico", alt: "logo", size: "36x36")
+    = image_tag("favicon.ico", alt: "logo", size: "40x40")
     .margin-s-l
       Serendippy
 
   .flex-expanded
 
   - if logged_in?
-    .text.large.margin-m-r
+    .margin-m-r
       = image_tag("timeline.png", size: "36x36")
 
-    .text.large.margin-m-r
+    .margin-m-r
+      = image_tag("search.png", size: "36x36")
+
+    .margin-m-r
       = image_tag("mypage.png", size: "36x36")
 
-    .text.large
+    .margin-m-r
       = link_to image_tag("logout.png", size: "36x36"), logout_path, method: :delete
 
   - if !logged_in?
-    .text.large
+    .margin-m-r
       = link_to "Login", login_path  .text.large
 
-    = link_to image_tag("signup.png", size: "36x36"), new_user_path, class: "link-none"
+    .margin-m-r
+      = link_to image_tag("signup.png", size: "36x36"), new_user_path, class: "link-none"
