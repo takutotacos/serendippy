@@ -1,6 +1,7 @@
 class GenresController < ApplicationController
 
   def index
+    @genres = Genre.all.to_a
   end
 
   def new
@@ -8,9 +9,13 @@ class GenresController < ApplicationController
   end
 
   def create
-  end
-
-  def edit
+    @genre = Genre.new(_genre_params)
+    if @genre.save
+      index
+      render :index
+    else
+      render :new
+    end
   end
 
   def destroy
@@ -18,5 +23,6 @@ class GenresController < ApplicationController
 
 private
   def _genre_params
+    params.require(:genre).permit(:name)
   end
 end

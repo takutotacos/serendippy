@@ -15,7 +15,9 @@
       .width-30
         = f.label :genres, "genre"
       .width-70
-        = f.check_box :genres, style: "width: auto", class: "form-control"
+        - @genres.each do |g|
+          = f.check_box :genre_ids, { multiple: true, include_hidden: false }, g.id
+          = g.name
         - @discovery.errors[:name].each do |message|
           %span.error_message= message
           %br/
