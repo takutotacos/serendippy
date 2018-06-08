@@ -5,6 +5,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
+    @discovery_count = @user.discoveries.count
   end
 
   def new
@@ -14,11 +16,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(_user_params)
     if @user.save
+      log_in @user
       render :show
     else
       render :new
     end
-
   end
 
   def edit

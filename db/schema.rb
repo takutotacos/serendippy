@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180602072315) do
+ActiveRecord::Schema.define(version: 20180608044441) do
 
   create_table "discoveries", force: :cascade do |t|
     t.string "content"
@@ -22,11 +22,11 @@ ActiveRecord::Schema.define(version: 20180602072315) do
 
   create_table "discovery_and_genre_relationships", force: :cascade do |t|
     t.integer "genre_id"
-    t.integer "memo_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "discovery_id"
+    t.index ["discovery_id"], name: "index_discovery_and_genre_relationships_on_discovery_id"
     t.index ["genre_id"], name: "index_discovery_and_genre_relationships_on_genre_id"
-    t.index ["memo_id"], name: "index_discovery_and_genre_relationships_on_memo_id"
   end
 
   create_table "genres", force: :cascade do |t|
