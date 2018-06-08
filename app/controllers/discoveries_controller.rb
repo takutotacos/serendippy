@@ -4,6 +4,7 @@ class DiscoveriesController < ApplicationController
 
   def new
     @discovery = Discovery.new
+    @genre = Genre.new
     @genres = Genre.all
   end
 

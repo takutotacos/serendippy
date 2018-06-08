@@ -1,11 +1,9 @@
 @import "common";
 
 .btn{
-  border: 1px solid black;
-  -webkit-border-radius: 1rem;
-  -moz-border-radius: 1rem;
-  border-radius: 1rem;
-  color: red;
-  background: blueviolet;
-  padding: $normal;
+  border: none;
+  padding: 4px 12px;
+  font-size: 1rem;
+  color: white;
+  background-color: $theme-color;
 }

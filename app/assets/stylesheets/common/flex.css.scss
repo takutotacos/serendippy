@@ -2,12 +2,16 @@
 
 .flex-container{
   display: flex;
+
   &.right{
     justify-content: flex-end;
+  }
+
+  &.baseline{
+    align-items: baseline;
   }
 }
 
 .flex-expanded{
   flex: 1;
 }
-
