@@ -1,4 +1,13 @@
 - discovery = discovery
 
-%p= discovery.content
-%p= discovery.created_at
+.flex-container.width-50
+  .flex-expanded
+
+  %ul
+    .text.normal
+      = discovery.content
+    .text.xsmall{style: "align-self: flex-end;"}
+      = discovery.created_at.strftime('%m/%d %H:%M:%S')
+
+  .flex-expanded
+
