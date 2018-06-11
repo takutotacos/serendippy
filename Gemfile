@@ -31,6 +31,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '3.1.11'
 gem 'haml-rails'
 gem 'erb2haml'
+gem 'bootstrap-sass'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

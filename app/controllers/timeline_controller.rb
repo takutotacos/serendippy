@@ -4,7 +4,7 @@ class TimelineController < ApplicationController
     @genre = Genre.new
     @discovery = Discovery.new
 
-    @genres = Genre.all.to_a
-    @discoveries = current_user.discoveries
+    @genres = Genre.order(:created_at).all
+    @discoveries = Discovery.where(user_id: current_user.id).order(created_at: :desc)
   end
 end

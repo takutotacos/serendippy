@@ -2,6 +2,9 @@
 
 .text{
 
+  &.xsmall{
+    font-size: $xsmall;
+  }
   &.small{
     font-size: $small
   }
