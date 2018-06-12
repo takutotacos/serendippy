@@ -1,13 +1,11 @@
 - discovery = discovery
 
-.flex-container.width-50
-  .flex-expanded
-
-  %ul
-    .text.normal
-      = discovery.content
-    .text.xsmall{style: "align-self: flex-end;"}
-      = discovery.created_at.strftime('%m/%d %H:%M:%S')
-
-  .flex-expanded
-
+.margin-m.padding-s{style: "border: 1px solid black;"}
+  .text.normal
+    = discovery.content
+  .text.small.margin-s-b
+    genres:
+    - discovery.genres.each do |g|
+      %span.circle{style: "background-color: red;"}= g.name
+  .text.xsmall
+    = discovery.created_at.strftime('%m/%d %H:%M')

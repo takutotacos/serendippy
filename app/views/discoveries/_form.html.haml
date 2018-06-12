@@ -4,13 +4,16 @@
 
 = form_for discovery do |f|
   .text.small.flex-container.margin-m
-    %div.flex-expanded
+    .flex-expanded.text.right
+      genres:
     - genres.each do |g|
-      = f.check_box :genre_ids, { multiple: true, include_hidden: false }, g.id
-      = g.name
-    %div.flex-expanded
+      .margin-s-r
+        = f.check_box :genre_ids, { multiple: true, include_hidden: false }, g.id
+        = g.name
+    .flex-expanded
+      = link_to "add?", new_genre_path
 
-  = render "genres/form", genre: genre
+  -#= render "genres/form", genre: genre
 
   .text.large.flex-container.baseline
     %div.flex-expanded
