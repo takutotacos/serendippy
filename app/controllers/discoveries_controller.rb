@@ -12,7 +12,7 @@ class DiscoveriesController < ApplicationController
     @discovery = Discovery.new(_discovery_params)
     @discovery.user = current_user
     if @discovery.save
-      # todo 登録後の画面を作成する。
+      redirect_to timeline_path
     else
       render :new
     end
