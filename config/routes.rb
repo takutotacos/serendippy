@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
 
   get '/timeline' => 'timeline#index'
+  get '/search' => 'search#new'
+  get '/search' => 'search#search'
 
   resources :users
   resources :discoveries
