@@ -1,8 +1,8 @@
 - discovery = discovery
 
-.margin-m.padding-s{style: "border: 1px solid black;"}
+.margin-s{style: "padding: 0.5em 1em; background: #dcf7f0; border-left: solid 10px #42f4c8;"}
   .text.normal
-    = discovery.content
+    = simple_format(discovery.content)
   .text.small.margin-s-b
     genres:
     - discovery.genres.each do |g|
