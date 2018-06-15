@@ -1,1 +1,23 @@
-%h1 This is the search page!
+= form_for discovery do |f|
+  .text.small.flex-container.margin-m
+    .flex-expanded.text.right
+      genres:
+    - genres.each do |g|
+      .margin-s-r
+        = f.check_box :genre_ids, { multiple: true, include_hidden: false }, g.id
+        = g.name
+    .flex-expanded
+      = link_to "add?", new_genre_path
+
+  -#= render "genres/form", genre: genre
+
+  .text.large.flex-container.baseline
+    %div.flex-expanded
+    %div
+      = f.text_area :content, class: "form", size: "100x6", placeholder: "What's your new discovery!?"
+    %div.margin-m-l
+      = f.submit "Submit", class: "btn"
+    %div.flex-expanded
+
+- @discoveries.each do |d|
+  = render "discoveries/item_discovery", discovery: d
