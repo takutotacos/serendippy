@@ -5,10 +5,11 @@ class SearchController < ApplicationController
   end
 
   def show
+    binding.pry
     of_genres = params[:search][:genre][:id]
     content = params[:search][:content]
     @genres = Genre.all
-    @discoveries = Discovery.where(user_id: current_user.id, : of_genres)
+    @discoveries = Discovery.where(user_id: current_user.id, genres_id: of_genres).to_a
     render :new
   end
 private
