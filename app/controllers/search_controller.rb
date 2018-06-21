@@ -1,13 +1,14 @@
 class SearchController < ApplicationController
   def new
+    @genres = Genre.all
     @search = Search.new
-    @search.genres = Genre.all
+    @search.genres = @genres
     @discoveries = Discovery.where(user_id: current_user.id).order(created_at: :desc)
   end
 
   def show
     @search = Search.new(_search_params)
-    @search.genres = Genre.all
+    @search.genres = @genres || Genre.all
     @discoveries = @search.search(current_user)
 
     render :new

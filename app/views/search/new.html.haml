@@ -24,4 +24,4 @@
     %div.flex-expanded
 
 - @discoveries&.each do |d|
-  = render "discoveries/item_discovery", discovery: d
+  = render "discoveries/item_discovery", discovery: d, genres: @search.genres

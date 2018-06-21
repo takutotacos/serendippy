@@ -32,6 +32,7 @@ gem 'bcrypt', '3.1.11'
 gem 'haml-rails'
 gem 'erb2haml'
 gem 'bootstrap-sass'
+gem 'jquery-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
