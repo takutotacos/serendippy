@@ -25,11 +25,16 @@ class Search
   end
 
   def search(user)
-    @discoveries = Discovery.where(user_id: user.id)
+    @discoveries = Discovery
+                     .includes(:discovery_and_genre_relationships)
+                     .includes(:genres)
+                     .where(discoveries: {user_id: user.id})
+                     .order(created_at: :desc)
 
-    @discoveries = @discoveries.where("content like '%#{content}%'") if content.present?
+    @discoveries = @discoveries.where("discoveries.content like '%#{content}%'") if content.present?
     @discoveries = @discoveries.where("discoveries.created_at > ?", _created_at) if _created_at.present?
-    @discoveries = @discoveries.joins(:discovery_and_genre_relationships).where(discovery_and_genre_relationships: { genre_id: genres_selected }) if genres_selected.present?
+    @discoveries = @discoveries.where(discovery_and_genre_relationships: { genre_id: genres_selected }) if genres_selected.present?
+
     @discoveries.to_a
   end
 

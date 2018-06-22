@@ -19,6 +19,16 @@ class DiscoveriesController < ApplicationController
   end
 
   def update
+    @discovery = Discovery.find(params[:id])
+    if @discovery.update(_discovery_params)
+      render json: {discovery: {
+        content: @discovery.content,
+        genre_ids: @discovery.genres.pluck(:id),
+        genre_names: @discovery.genres.pluck(:name)
+      }}
+    else
+      
+    end
   end
 
 private

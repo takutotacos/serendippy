@@ -20,8 +20,8 @@
     %div
       = f.text_field :content, class: "form", placeholder: "keyword here!", value: @search.content
     %div.margin-m-l
-      = button_tag "Submit", class: "btn", type: :submit
+      = button_tag "Search", class: "btn", type: :submit
     %div.flex-expanded
 
 - @discoveries&.each do |d|
-  = render "discoveries/item_discovery", discovery: d
+  = render "discoveries/item_discovery", discovery: d, genres: @search.genres
