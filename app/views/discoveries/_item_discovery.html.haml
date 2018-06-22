@@ -4,9 +4,9 @@
 .margin-s{style: "padding: 0.5em 1em; background: #dcf7f0; border-left: solid 10px #42f4c8;"}
   .flex-container.align-center.js-container-text
     %div
-      .text.normal
+      .text.normal.js-content-text
         = simple_format(discovery.content)
-      .text.small.margin-s-b
+      .text.small.margin-s-b.js-genres-text
         genres:
         - discovery.genres.each do |g|
           %span.circle{style: "background-color: red;"}= g.name
@@ -17,11 +17,11 @@
       .btn.text.normal.js-edit
         Edit
 
-  .js-container-form.hide
+  .js-container-form.hide{data: {target_discovery_id: discovery.id}}
     = form_for discovery do |f|
       .flex-container.align-center
         %div
-          .text.large
+          .text.large.js-content
             = f.text_area :content, class: "form", size: "100x6", placeholder: "What's your new discovery!?"
 
           .text.small.margin-m.flex-container
@@ -32,13 +32,79 @@
                 = g.name
             = link_to "add?", new_genre_path
         .flex-expanded
-        %div
-          = f.submit "Submit", class: "btn"
+        .js-submit.btn Submit
 
 
 :javascript
-  $(".js-edit").on("click", function() {
-    $(".js-container-text").addClass("hide");
-    $(".js-container-form").removeClass("hide");
+  $(".js-edit").on("click", function(e) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+
+    var $this = $(this);
+
+    var $parent = $this.parents(".js-container-text");
+    var $form = $parent.next();
+
+    $parent.addClass("hide");
+    $form.removeClass("hide");
+  });
+
+  $(".js-submit").on("click", function(e) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+
+    var $this = $(this);
+    var $form = $this.parents(".js-container-form");
+
+    var discoveryId = $form.data("target-discovery-id");
+    var content = $form.find("textarea")[0].value;
+    var checked_ids = []
+    for (var i = 0; i < $form.find(":checkbox:checked").length; i++) {
+      checked_ids.push($form.find(":checkbox:checked")[i].value)
+    }
+
+    $.ajax({
+      url: "/discoveries/" + discoveryId,
+      type: "PATCH",
+      dataType: "json",
+      data: {
+          authenticity_token: $("meta[name=csrf-token]").attr("content"),
+          discovery: {
+            content: content,
+            genre_ids: checked_ids
+          },
+          id: discoveryId
+      }
+    })
+    .done(function(response) {
+      var resultContent = response["discovery"]["content"];
+      var resultGenreIds = response["discovery"]["genre_ids"];
+      var resultGenreNames = response["discovery"]["genre_names"];
+
+      // form の更新処理
+      $form.addClass("hide");
+      content.value = resultContent;
+
+      var checkBoxes = $form.find(":checkbox")
+      for(var i = 0; i < checkBoxes.length; i++) {
+        var val = parseInt(checkBoxes[i].value);
+        checkBoxes[i].checked = resultGenreIds.includes(val);
+      }
+
+      // textの更新処理
+      var genresText = "genres: " + resultGenreNames.join(" ");
+      $text = $form.prev();
+      $text.removeClass("hide");
+
+      $text.find(".js-content-text")[0].innerText = content;
+      $text.find(".js-genres-text")[0].textContent = genresText;
+    })
+    .fail(function(XMLHttpRequest, textStatus, errorThrown) {
+        console.log("XMLHttpRequest : " + XMLHttpRequest.status);
+        console.log("textStatus     : " + textStatus);
+        console.log("errorThrown    : " + errorThrown.message);
+        // var errorMessage = response.responseText == "" ? "通信に失敗しました。" : response.responseText;
+        // alert(errorMessage);
+    })
   });
 

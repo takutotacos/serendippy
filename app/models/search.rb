@@ -29,6 +29,7 @@ class Search
                      .includes(:discovery_and_genre_relationships)
                      .includes(:genres)
                      .where(discoveries: {user_id: user.id})
+                     .order(created_at: :desc)
 
     @discoveries = @discoveries.where("discoveries.content like '%#{content}%'") if content.present?
     @discoveries = @discoveries.where("discoveries.created_at > ?", _created_at) if _created_at.present?
