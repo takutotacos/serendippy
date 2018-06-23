@@ -9,7 +9,7 @@
       .text.small.margin-s-b.js-genres-text
         genres:
         - discovery.genres.each do |g|
-          %span.circle{style: "background-color: red;"}= g.name
+          %span.circle.theme= g.name
       .text.xsmall
         = discovery.created_at.strftime('%m/%d %H:%M')
     .flex-expanded
@@ -92,12 +92,17 @@
       }
 
       // textの更新処理
-      var genresText = "genres: " + resultGenreNames.join(" ");
+      var genresText = "genres:";
+      for (var i = 0; i < resultGenreNames.length; i++) {
+        var span = "<span class='circle theme'>" + resultGenreNames[i] + "</span>";
+        genresText += " " + span
+      }
+
       $text = $form.prev();
       $text.removeClass("hide");
 
       $text.find(".js-content-text")[0].innerText = content;
-      $text.find(".js-genres-text")[0].textContent = genresText;
+      $text.find(".js-genres-text")[0].innerHTML = genresText;
     })
     .fail(function(XMLHttpRequest, textStatus, errorThrown) {
         console.log("XMLHttpRequest : " + XMLHttpRequest.status);

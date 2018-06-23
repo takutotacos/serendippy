@@ -29,6 +29,11 @@ $black: #111111;
   -moz-border-radius: 12px;
   border-radius: 12px;
   padding: 4px;
+
+  &.theme{
+    background-color: $theme-color;
+    color: $white;
+  }
 }
 
 .hide{
