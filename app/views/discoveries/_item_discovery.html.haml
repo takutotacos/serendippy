@@ -104,12 +104,9 @@
       $text.find(".js-content-text")[0].innerText = content;
       $text.find(".js-genres-text")[0].innerHTML = genresText;
     })
-    .fail(function(XMLHttpRequest, textStatus, errorThrown) {
-        console.log("XMLHttpRequest : " + XMLHttpRequest.status);
-        console.log("textStatus     : " + textStatus);
-        console.log("errorThrown    : " + errorThrown.message);
-        // var errorMessage = response.responseText == "" ? "通信に失敗しました。" : response.responseText;
-        // alert(errorMessage);
+    .fail(function(response) {
+        var errorMessage = response.responseText == "" ? "通信に失敗しました。" : response.responseText;
+        alert(errorMessage);
     })
   });
 
