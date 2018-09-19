@@ -10,6 +10,6 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
 # Precompile additional assets.
 Rails.application.config.assets.precompile += %w[discoveries/item_discovery.js]
-# application.js, application.css, and all non-JS/CSS in the app/assets
-# folder are already added.
+# application.js, application.css.scss, and all non-JS/CSS in the app/assets
+# folder are already added
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
